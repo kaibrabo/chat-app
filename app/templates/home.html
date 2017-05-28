@@ -1,13 +1,16 @@
 <body class="container" ng-controller="RoomCtrl as room">
 	<nav class="nav-bar">
-		<h1>Chatta  <span class="ion-chatboxes"></span></h1>
+		<h1>Chatta  <span class="ion-chatboxes"></span>
+		</h1>
 
-		<h2 class="heroTitle">{{room.title}}</h2>
-		<a>
-			<h3>
-				<span class="ion-android-add"> new chat</span>
-			</h3>
-		</a>
+		<h2 class="heroTitle">{{ room.title }}</h2>
+
+		<!-- New Chat Button -->
+		<button type="button" class="btn btn-default" ng-click="room.addChat()">
+			<span class="ion-plus-round">
+			 new chat room</span>
+		 </button>
+
 		<div>
 			<ul>
 				<li ng-repeat="room in room.rooms">{{ room.$value }}</li>
@@ -18,21 +21,7 @@
 
 	</nav>
 	<section class="messages">
-		<div class="chat">
 
-		</div>
-		<div class="input">
-
-		<form ng-submit="submit()" ng-controller="MessageCtrl">
-			Enter text and hit enter:
-			<textarea type="text" ng-model="text" name="text"></textarea>
-			<input type="submit" id="submit" value="Send" />
-			<p>{{list}}</p>
-		</form>
-
-
-
-		</div>
 
 	</section>
 

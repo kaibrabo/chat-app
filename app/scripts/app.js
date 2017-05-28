@@ -8,22 +8,16 @@
 				requireBase: false
 			});
 
-		$stateProvider
-			.state('landing', {
-				url: '/',
-				controller: 'LandingCtrl as landing',
-				templateUrl: '/templates/landing.html'
-			});
-
          $stateProvider
 			.state('room', {
-				url: '/home',
+				url: '/',
 				controller: 'RoomCtrl as room',
 				templateUrl: '/templates/home.html'
-			});
-     }
+			})
+			
+     };
 
 	angular
-		.module('chatta', ['ui.router', 'firebase',])
+		.module('chatta', ['ui.router', 'firebase', 'ui.bootstrap'])
 		.config(config);
 })();
