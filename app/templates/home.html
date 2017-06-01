@@ -1,4 +1,6 @@
 <body class="container" ng-controller="RoomCtrl as room">
+
+	<!-- Nav Section -->
 	<nav class="nav-bar">
 		<h1>Chatta  <span class="ion-chatboxes"></span>
 		</h1>
@@ -6,23 +8,42 @@
 		<h2 class="heroTitle">{{ room.title }}</h2>
 
 		<!-- New Chat Button -->
-		<button type="button" class="btn btn-default" ng-click="room.addChat()">
+		<button type="button" class="btn btn-default addChat" ng-click="room.addChat()">
 			<span class="ion-plus-round">
-			 new chat room</span>
-		 </button>
+				new chat room</span>
+		</button>
 
-		<div>
-			<ul>
-				<li ng-repeat="room in room.rooms">{{ room.$value }}</li>
-			</ul>
+			<!-- List of Chat Rooms -->
+		<div class="chatRooms" ng-repeat="room in room.rooms">
+			<div class="buttonArea" ng-click="$parent.room.setCurrentRoom(room)">
+				{{ room.$value }}
+			</div>
 		</div>
-
-
-
 	</nav>
-	<section class="messages">
 
+		<!-- Message Room -->
+		<div class="messages-container">
+			<div>
+				<h3>
+					Chatta with: <span class="nameOfUser">{{ room.currentRoom.$value }}</span>
+				</h3>
+				<div class="messagesBody" ng-repeat="message in room.messages">
+					<div class="username">
+						{{ message.username }}
+					</div>
+					<div class="userMessage">
+						" {{ message.content }} "
+					</div>
+					<div class="timeStamp">
+						{{ message.sentAt | date : "shortTime" }}
+					</div>
+				</div>
+			</div>
 
-	</section>
+			<!-- Text Input -->
+			<div>
+				<!-- <input type="text"/> -->
+			</div>
+		</div>
 
 </body>

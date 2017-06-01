@@ -1,9 +1,13 @@
 (function(){
-	function RoomCtrl($uibModal, Room){
+	function RoomCtrl($uibModal, Room, Message){
 
 		this.title = "Messages";
 
 		this.rooms = Room.all;
+
+		this.currentRoom = null;
+
+		this.messages = null;
 
 		this.addChat = function(){
 
@@ -15,10 +19,17 @@
 			});
 		};
 
+		this.setCurrentRoom = function(room){
+
+			this.currentRoom = room;
+
+			this.messages = Message.getByRoomId(room.$id);
+		};
+
 	}
 
 	angular
 		.module('chatta')
-		.controller('RoomCtrl', ['$uibModal', 'Room', RoomCtrl]);
+		.controller('RoomCtrl', ['$uibModal', 'Room', 'Message', RoomCtrl]);
 
 })();
