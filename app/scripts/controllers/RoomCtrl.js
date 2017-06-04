@@ -1,5 +1,5 @@
 (function(){
-	function RoomCtrl($uibModal, Room, Message){
+	function RoomCtrl($uibModal, Room, Message, $cookies){
 
 		this.title = "Messages";
 
@@ -30,6 +30,6 @@
 
 	angular
 		.module('chatta')
-		.controller('RoomCtrl', ['$uibModal', 'Room', 'Message', RoomCtrl]);
+		.controller('RoomCtrl', ['$uibModal', 'Room', 'Message', '$cookies', RoomCtrl]);
 
 })();

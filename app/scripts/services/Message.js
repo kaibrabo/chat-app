@@ -7,10 +7,7 @@
 
         Message.getByRoomId = function(roomId) {
 
-            var roomIdRef = ref.orderByChild('roomId').equalTo(roomId);
-
-            return $firebaseArray(roomIdRef);
-
+            return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
         };
 
         return Message;

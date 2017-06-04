@@ -14,10 +14,9 @@
 				controller: 'RoomCtrl as room',
 				templateUrl: '/templates/home.html'
 			})
-			
      };
 
 	angular
-		.module('chatta', ['ui.router', 'firebase', 'ui.bootstrap'])
+		.module('chatta', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
 		.config(config);
 })();
