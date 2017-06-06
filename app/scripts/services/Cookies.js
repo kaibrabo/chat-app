@@ -3,8 +3,11 @@
 
         var currentUser = $cookies.get('ChattaCurrentUser');
 
+        // pops up if no user is logged-in/registered in cookies
+        // at the launch of app
         if (!currentUser || currentUser === '') {
-            // Do something to allow users to set their username
+
+            // opens modal to allow users to set their username
             $uibModal.open({
                 templateUrl: '/templates/cookies.html',
 				controller: 'CookiesInstanceCtrl',

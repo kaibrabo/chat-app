@@ -13,22 +13,34 @@
 		<button type="button" class="btn btn-default addChat" ng-click="room.addChat()">
 			<span class="ion-plus-round">
 				new chat room</span>
-		</button>
+			</button>
 
 			<!-- List of Chat Rooms -->
-		<div class="chatRooms" ng-repeat="room in room.rooms">
-			<div class="buttonArea" ng-click="$parent.room.setCurrentRoom(room)">
-				{{ room.$value }}
+			<div class="chatRooms" ng-repeat="room in room.rooms">
+				<div class="buttonArea" ng-click="$parent.room.setCurrentRoom(room)">
+					{{ room.$value }}
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 
 		<!-- Message Room -->
 		<div class="messages-container">
+
+			<!-- Display Messages -->
 			<div>
 				<h3>
 					Chatta with: <span class="nameOfUser">{{ room.currentRoom.$value }}</span>
 				</h3>
+
+
+				<!-- Text Input -->
+				<div>
+					<textarea ng-model="room.newMessage.content" id="textarea" placeholder="Say Anything.." required></textarea>
+					<div class="sendMessage" ng-click="room.sendMessage()">
+						Send
+					</div>
+				</div>
+
 				<div class="messagesBody" ng-repeat="message in room.messages">
 					<div class="username">
 						{{ message.username }}
@@ -42,10 +54,7 @@
 				</div>
 			</div>
 
-			<!-- Text Input -->
-			<div>
-				<!-- <input type="text"/> -->
-			</div>
+
 		</div>
 
-</body>
+	</body>
