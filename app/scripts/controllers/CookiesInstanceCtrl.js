@@ -9,7 +9,6 @@
                 return;
             }
 
-
             // if a username is entered...
             // assigns the cookies current user w/ this.username
             $cookies.put('ChattaCurrentUser', this.username);

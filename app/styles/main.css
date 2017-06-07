@@ -50,6 +50,10 @@ body {
 	cursor: pointer;
 }
 
+.nav-bar .loggedUser {
+	height: 50px;
+}
+
 .heroTitle {
 	padding-left: 40px;
 	margin: 30px auto;
@@ -136,10 +140,6 @@ body {
 	font-weight: 700;
 }
 
-.messagesBody .userMessage {
-
-}
-
 .messagesBody .timeStamp {
 	font-style: italic;
 }
@@ -148,10 +148,14 @@ body {
 	text-align: center;
 }
 
-.modal-box .btn-new {
+.modal-box .btn-new, .btn-cancel {
 	display: block; /* change this from inline-block */
     width: 30%; /* setting the width */
     margin: 0 auto;
+}
+
+.btn-cancel {
+	margin-top: 10px;
 }
 
 body div textarea {
