@@ -13,10 +13,12 @@
             // assigns the cookies current user w/ this.username
             $cookies.put('ChattaCurrentUser', this.username);
 
-            $uibModalInstance.close();
+            $uibModalInstance.close()
+
+            window.location.reload(true);
+
         }
-
-
+        
     }
 
     angular

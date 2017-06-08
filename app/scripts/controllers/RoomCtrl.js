@@ -51,6 +51,15 @@
 
 		}
 
+		this.signOut = function() {
+
+            console.log("signout modal invoked");
+
+            $cookies.remove('ChattaCurrentUser', this.username);
+
+			window.location.reload(true);
+        }
+
 	}
 
 	angular

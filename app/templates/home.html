@@ -9,7 +9,12 @@
 
 		<h2 class="heroTitle">{{ room.title }}</h2>
 
-			<h4 class="loggedUser">Logged in: {{ room.currentUser }}</span></h4>
+		<div>
+			<h4 class="loggedUser">Logged in: {{ room.currentUser }}</h4>
+
+			<h4 ng-click="room.signOut()"> Logout <span class="ion-log-out"></span></h4>
+		</div>
+
 
 		<!-- New Chat Button -->
 		<button type="button" class="btn btn-default addChat" ng-click="room.addChat()">

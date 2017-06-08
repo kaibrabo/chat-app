@@ -1,0 +1,24 @@
+<section class="modal-box" ng-controller="AuthCtrl as auth">
+    <div class="modal-header">
+        <h3 class="modal-title">Sign Up</h3>
+    </div>
+
+    <form class="signUpUser" ng-submit="auth.ok(Login.$valid)" novalidate>
+        <div class="modal-body">
+            <h5 class="modal-prompt">Username</h5>
+            <input type="text" name="input" ng-model="auth.username" required>
+        </div>
+        <div class="modal-body">
+            <h5 class="modal-prompt">Email</h5>
+            <input type="text" name="input" ng-model="auth.email" required>
+        </div>
+        <div class="modal-body">
+            <h5 class="modal-prompt">Password</h5>
+            <input type="text" name="input" ng-model="auth.password" required>
+        </div>
+    </form>
+
+    <div class="modal-footer">
+        <button class="btn-new" ng-click="auth.submit()">Enter</button>
+    </div>
+</section>
