@@ -1,5 +1,8 @@
 (function(){
-	function RoomCtrl($uibModal, Room, Message, $cookies){
+	function RoomCtrl($uibModal, Room, Message, $cookies, $firebaseAuth){
+
+		var provider = new firebase.auth.GoogleAuthProvider();
+		var auth = $firebaseAuth();
 
 		this.title = "Messages";
 		this.rooms = Room.all;
@@ -53,17 +56,35 @@
 
 		this.signOut = function() {
 
-            console.log("signout modal invoked");
+            console.log("signOut modal invoked");
+
+			firebase.auth().signOut().then(function(returnedObject) {
+				console.log(returnedObject, 'returnedObject after signing out')
+
+				// User deleted.
+				// console.log('signOut firebase function')
+				// console.log(auth, 'this is Auth in signOut firebase function')
+				// // var token = result.credential.accessToken;
+				// // The signed-in user info.
+				// var user = result.user;
+				// console.log(result.credential.accessToken, "token");
+				// console.log(result.user, "user");
+				// console.log(user.displayName, "username");
+			}, function(error) {
+				// An error happened.
+			});
+
+			// var user = firebase.auth().currentUser;
 
             $cookies.remove('ChattaCurrentUser', this.username);
 
-			window.location.reload(true);
+			// window.location.reload(true);
         }
 
 	}
 
 	angular
 		.module('chatta')
-		.controller('RoomCtrl', ['$uibModal', 'Room', 'Message', '$cookies', RoomCtrl]);
+		.controller('RoomCtrl', ['$uibModal', 'Room', 'Message', '$cookies', '$firebaseAuth', RoomCtrl]);
 
 })();

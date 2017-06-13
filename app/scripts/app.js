@@ -17,6 +17,6 @@
      };
 
 	angular
-		.module('chatta', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
+		.module('chatta', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies', 'firebase'])
 		.config(config);
 })();

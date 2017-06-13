@@ -1,7 +1,13 @@
 (function(){
-    function AuthCtrl($uibModalInstance, $uibModal, $firebaseAuth, $cookies){
+    function AuthCtrl($uibModalInstance, $uibModal, $cookies, $scope, $firebaseAuth){
 
-        this.signUpUser = function(){
+        var provider = new firebase.auth.GoogleAuthProvider();
+
+        gapi.load('auth2', function() {
+            gapi.auth2.init();
+        });
+
+        $scope.signUpUser = function(){
 
 			var modalInstance = $uibModal.open({
 				templateUrl: '/templates/login.html',
@@ -20,20 +26,43 @@
 
                 var auth = $firebaseAuth();
 
-                auth.$createUserWithEmailAndPassword(this.email, this.password).then(
-                    function(firebaseUser) {
+                // auth.$createUserWithEmailAndPassword(this.email, this.password).then(
+                //     function(firebaseUser) {
+                //
+                //         console.log("User: " + firebaseUser.uid);
+                //
+                //     }).catch(function(error) {
+                //
+                //         console.error("Authentication failed: ", error);
+                //     });
 
-                        console.log("User: " + firebaseUser.uid);
+                firebase.auth().signInWithPopup(provider).then(function(result) {
 
-                    }).catch(function(error) {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    var token = result.credential.accessToken;
 
-                        console.error("Authentication failed: ", error);
-                    });
+                    // The signed-in user info.
+                    var user = result.user;
+                    // ...
+                }).catch(function(error) {
 
-                var currentUser = $cookies.get('ChattaCurrentUser');
+                    // Handle Errors here.
+                    var errorCode = error.code;
 
-                console.log(currentUser);
-            });
+                    var errorMessage = error.message;
+
+                    // The email of the user's account used.
+                    var email = error.email;
+
+                    // The firebase.auth.AuthCredential type that was used.
+                    var credential = error.credential;
+                    // ...
+                });
+
+                    var currentUser = $cookies.get('ChattaCurrentUser');
+
+                    console.log(currentUser);
+                });
 
 		};
 
@@ -42,5 +71,5 @@
 
     angular
         .module('chatta')
-        .controller('AuthCtrl', ['$uibModalInstance', '$uibModal', '$firebaseAuth', '$cookies', AuthCtrl]);
+        .controller('AuthCtrl', ['$uibModalInstance', '$uibModal', '$cookies', '$firebaseAuth', '$scope', AuthCtrl]);
 })();
