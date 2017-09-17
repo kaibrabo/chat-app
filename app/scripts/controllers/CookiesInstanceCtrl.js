@@ -38,7 +38,7 @@
 
                 $uibModalInstance.close()
 
-                // window.location.reload(true);
+                window.location.reload(true);
 
             }).catch(function(error) {
                 // Handle Errors here.
