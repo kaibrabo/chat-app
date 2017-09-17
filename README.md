@@ -6,7 +6,7 @@
 
 Chatta is a Messaging application written entirely with **Javascript / AngularJS (1x)**. 
 
-The Gems used were:
+The extensions used:
 
 Database - [FireBase](https://firebase.google.com/) || 
 Framework - [AngularJS 1x](https://angularjs.org/)
