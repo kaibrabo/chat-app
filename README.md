@@ -2,6 +2,10 @@
 
 ![BlocChat pic](https://github.com/kaibrabo/chat-app/blob/master/chatta_home.png)
 
+## Live App via Firebase
+
+https://chatta-chat-app.firebaseapp.com
+
 ## Chatta Details
 
 Chatta is a Messaging application written entirely with **Javascript / AngularJS (1x)**. 
