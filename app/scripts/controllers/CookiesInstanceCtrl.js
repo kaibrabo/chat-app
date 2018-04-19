@@ -28,9 +28,6 @@
                 var token = result.credential.accessToken;
                 // The signed-in user info.
                 var user = result.user;
-                console.log(result.credential.accessToken, "token");
-                console.log(result.user, "user");
-                console.log(user.displayName, "username");
 
                 this.username = user.displayName;
 

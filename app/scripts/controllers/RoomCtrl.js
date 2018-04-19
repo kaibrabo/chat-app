@@ -44,16 +44,9 @@
 
 			document.getElementById("textarea").value = "";
 
-			console.log(this.newMessage.content, "message content");
-
-			console.log(this.newMessage.roomId, "room id");
-
-			console.log(this.newMessage.sentAt, "Roomctrl sentAt");
-
 		}
 
 		this.signOut = function() {
-			console.log(this.currentUser, "signed out");
             $cookies.remove('ChattaCurrentUser', this.currentUser);
 			window.location.reload(true);
         }
