@@ -27,9 +27,7 @@
 		};
 
 		this.setCurrentRoom = function(room){
-
 			this.currentRoom = room;
-
 			this.messages = Message.getByRoomId(room.$id);
 		};
 
@@ -55,32 +53,10 @@
 		}
 
 		this.signOut = function() {
-
-            console.log("signOut modal invoked");
-
-			firebase.auth().signOut().then(function(returnedObject) {
-				console.log(returnedObject, 'returnedObject after signing out')
-
-				// User deleted.
-				// console.log('signOut firebase function')
-				// console.log(auth, 'this is Auth in signOut firebase function')
-				// // var token = result.credential.accessToken;
-				// // The signed-in user info.
-				// var user = result.user;
-				// console.log(result.credential.accessToken, "token");
-				// console.log(result.user, "user");
-				// console.log(user.displayName, "username");
-			}, function(error) {
-				// An error happened.
-			});
-
-			// var user = firebase.auth().currentUser;
-
-            $cookies.remove('ChattaCurrentUser', this.username);
-
-			// window.location.reload(true);
+			console.log(this.currentUser, "signed out");
+            $cookies.remove('ChattaCurrentUser', this.currentUser);
+			window.location.reload(true);
         }
-
 	}
 
 	angular
